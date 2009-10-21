@@ -1,0 +1,57 @@
+% Use the grid pitches from 
+% http://www.admin.cam.ac.uk/offices/communications/services/identityguidelines/guidelines-graphiclanguage.pdf
+% 
+% In essence we want the vertical pitch to be such that there are 30 steps.
+% This is based on the PowerPoint template sizes.
+%
+\newlength{\cam@inner@pitch} \setlength{\cam@inner@pitch}{0.0333333\paperheight} 
+
+% The University logo
+\pgfdeclareimage[height=2\cam@inner@pitch]{beamertitlelogocambridge}{uc-cmyk}
+
+\setbeamerfont{date}{size=\footnotesize}
+
+\mode<presentation>
+
+\defbeamertemplate*{title page}{cambridge theme}[1][]
+{%
+%  \begin{beamercolorbox}[wd=\paperwidth,ht=4.5\cam@outer@pitch,dp=\cam@outer@pitch,left,sep=0pt]{palette primary}%
+%    \hbox{
+%       \hskip0.5\cam@outer@pitch
+%       \begin{beamercolorbox}[ht=0pt,sep=0pt]{}%
+%	  \usebeamerfont{frametitle}\insertframetitle
+%       \end{beamercolorbox}
+%    }
+%  \end{beamercolorbox}%
+%  \nointerlineskip
+%  \begin{beamercolorbox}[wd=\paperwidth,dp=0.5\cam@outer@pitch]{lower separation line head}%
+%  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=\paperwidth,sep=\cam@inner@pitch,leftskip=\cam@inner@pitch,#1]{titlegraphic}
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \end{beamercolorbox}%
+  \vfill
+  \begin{beamercolorbox}[wd=\paperwidth,sep=\cam@inner@pitch,leftskip=\cam@inner@pitch,#1]{title}
+    \usebeamerfont{title}\inserttitle\par%
+    \ifx\insertsubtitle\@empty%
+    \else%
+      \vskip\cam@inner@pitch%
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+    \fi%     
+  \end{beamercolorbox}\nointerlineskip%
+  \vfill
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,center,#1]{author}
+    \usebeamerfont{author}\insertauthor
+  \end{beamercolorbox}\nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,center,#1]{institute}
+    \usebeamerfont{institute}\insertinstitute
+  \end{beamercolorbox}\nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,center,#1]{date}
+    \usebeamerfont{date}\insertdate
+  \end{beamercolorbox}
+  \vskip\cam@inner@pitch%
+}
+
+\mode<all>
+
+% Default title graphic is uni logo.
+\titlegraphic{\pgfuseimage{beamertitlelogocambridge}}

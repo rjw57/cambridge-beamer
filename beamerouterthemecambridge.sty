@@ -1,0 +1,77 @@
+
+% Use the grid pitches from 
+% http://www.admin.cam.ac.uk/offices/communications/services/identityguidelines/guidelines-graphiclanguage.pdf
+% 
+% In essence we want the vertical pitch to be such that there are 30 steps.
+% This is based on the PowerPoint template sizes.
+%
+\newlength{\cam@outer@pitch} \setlength{\cam@outer@pitch}{0.0333333\paperheight} 
+
+\setbeamersize{text margin left=\cam@outer@pitch}
+\setbeamersize{text margin right=\cam@outer@pitch}
+
+\setbeamerfont{section in head/foot}{size=\Large}
+\setbeamerfont{logo in head/foot}{parent=subsection in head/foot}
+
+% The University logo
+\pgfdeclareimage[height=1.5\cam@outer@pitch]{beamerlogocambridge}{uc-rev-cmyk}
+
+\mode<presentation>
+
+% Navigation symbols
+\defbeamertemplate*{navigation symbols}{cambridge theme}{}
+
+% Headline and footline
+
+\defbeamertemplate*{frametitle}{cambridge theme}
+{%
+  \vskip-1pt % HACK: Get rid of line at top of screen
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4.5\cam@outer@pitch,dp=\cam@outer@pitch,left,sep=0pt]{palette primary}%
+    \hbox{
+       \hskip0.5\cam@outer@pitch
+       \begin{beamercolorbox}[ht=0pt,sep=0pt]{}%
+	  \usebeamerfont{frametitle}\insertframetitle
+       \end{beamercolorbox}
+    }
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,dp=0.5\cam@outer@pitch]{lower separation line head}%
+  \end{beamercolorbox}%
+}
+
+\defbeamertemplate*{footline}{cambridge theme}
+{
+  \begin{beamercolorbox}[dp=0\cam@outer@pitch,ht=2.5\cam@outer@pitch,sep=0.5\cam@outer@pitch,leftskip=0.5\cam@outer@pitch]{palette secondry}%
+     \usebeamerfont{logo in head/foot}\insertlogo
+  \end{beamercolorbox}%
+}
+
+% background
+
+\defbeamertemplate*{background}{cambridge theme}
+{}
+
+
+% Sidebar
+
+\defbeamertemplate*{sidebar left}{cambridge theme}
+{}
+
+\defbeamertemplate*{sidebar right}{cambridge theme}
+{}
+
+\defbeamertemplate*{sidebar canvas left}{cambridge theme}
+{}
+
+\defbeamertemplate*{sidebar canvas right}{cambridge theme}
+{}
+
+\mode<all>
+
+\ifbeamertemplateempty{logo}{%
+   \setbeamertemplate{logo}{%
+      \pgfuseimage{beamerlogocambridge}
+   }
+}{%
+   % Do nothing if logo is set.
+}
