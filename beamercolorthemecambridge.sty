@@ -1,23 +1,4 @@
-
-% From http://www.admin.cam.ac.uk/offices/communications/services/identityguidelines/
-
-\definecolor{CambridgeLightBlue}{RGB}{106,173,228}
-\definecolor{CambridgeLightOrange}{RGB}{239,189,71}
-\definecolor{CambridgeLightGreen}{RGB}{168,180,0}
-\definecolor{CambridgeLightPurple}{RGB}{181,147,155}
-\definecolor{CambridgeLightTeal}{RGB}{163,193,173}
-
-\definecolor{CambridgeCoreBlue}{RGB}{0,115,207}
-\definecolor{CambridgeCoreOrange}{RGB}{227,114,34}
-\definecolor{CambridgeCoreGreen}{RGB}{88,166,24}
-\definecolor{CambridgeCorePurple}{RGB}{142,37,141}
-\definecolor{CambridgeCoreTeal}{RGB}{0,179,190}
-
-\definecolor{CambridgeDarkBlue}{RGB}{0,62,114}
-\definecolor{CambridgeDarkOrange}{RGB}{200,78,0}
-\definecolor{CambridgeDarkGreen}{RGB}{67,81,37}
-\definecolor{CambridgeDarkPurple}{RGB}{65,45,93}
-\definecolor{CambridgeDarkTeal}{RGB}{21,101,112}
+\usepackage{cambridgecolours}
 
 \def\beamer@theme@base@blue{
   \definecolor{CambridgeCore}{named}{CambridgeCoreBlue}
@@ -45,18 +26,22 @@
   \definecolor{CambridgeDark}{named}{CambridgeDarkTeal}
 }
 
-\beamer@theme@base@teal
+\beamer@theme@base@blue
 \DeclareOptionBeamer{base}{\csname beamer@theme@base@#1\endcsname}
 \ProcessOptionsBeamer
 
 \mode<presentation>
 
-\setbeamercolor*{normal text}{fg=CambridgeDark,bg=CambridgeLight!20}
+\setbeamercolor*{normal text}{fg=CambridgeDark,bg=CambridgeLight!10!white}
+\setbeamercolor*{structure}{fg=CambridgeDark}
+
 \setbeamercolor*{title}{fg=white,bg=CambridgeCore}
 \setbeamercolor*{author}{parent=title}
 \setbeamercolor*{institute}{parent=title,bg=CambridgeDark}
 \setbeamercolor*{date}{fg=black,bg=CambridgeLight}
-\setbeamercolor*{structure}{fg=CambridgeDark}
+
+\setbeamercolor*{part name}{fg=white}
+\setbeamercolor*{part title}{fg=white}
 
 \setbeamercolor*{palette primary}{fg=white,bg=CambridgeCore}
 \setbeamercolor*{palette secondry}{fg=white,bg=CambridgeDark}

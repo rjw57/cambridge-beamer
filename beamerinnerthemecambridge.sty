@@ -13,43 +13,51 @@
 
 \mode<presentation>
 
+% Title page
+
 \defbeamertemplate*{title page}{cambridge theme}[1][]
 {%
-%  \begin{beamercolorbox}[wd=\paperwidth,ht=4.5\cam@outer@pitch,dp=\cam@outer@pitch,left,sep=0pt]{palette primary}%
-%    \hbox{
-%       \hskip0.5\cam@outer@pitch
-%       \begin{beamercolorbox}[ht=0pt,sep=0pt]{}%
-%	  \usebeamerfont{frametitle}\insertframetitle
-%       \end{beamercolorbox}
-%    }
-%  \end{beamercolorbox}%
-%  \nointerlineskip
-%  \begin{beamercolorbox}[wd=\paperwidth,dp=0.5\cam@outer@pitch]{lower separation line head}%
-%  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=\paperwidth,sep=\cam@inner@pitch,leftskip=\cam@inner@pitch,#1]{titlegraphic}
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-  \end{beamercolorbox}%
+  \vbox{
+    \begin{beamercolorbox}[wd=\paperwidth,sep=\cam@inner@pitch,leftskip=\cam@inner@pitch,#1]{titlegraphic}
+      {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \end{beamercolorbox}%
+    \vskip\cam@inner@pitch%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=\cam@inner@pitch,leftskip=\cam@inner@pitch,#1]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+	\vskip\cam@inner@pitch%
+	{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}\nointerlineskip%
+  }
+  \vskip\cam@inner@pitch
   \vfill
-  \begin{beamercolorbox}[wd=\paperwidth,sep=\cam@inner@pitch,leftskip=\cam@inner@pitch,#1]{title}
-    \usebeamerfont{title}\inserttitle\par%
-    \ifx\insertsubtitle\@empty%
-    \else%
-      \vskip\cam@inner@pitch%
-      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-    \fi%     
-  \end{beamercolorbox}\nointerlineskip%
-  \vfill
-  \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,center,#1]{author}
-    \usebeamerfont{author}\insertauthor
-  \end{beamercolorbox}\nointerlineskip%
-  \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,center,#1]{institute}
-    \usebeamerfont{institute}\insertinstitute
-  \end{beamercolorbox}\nointerlineskip%
-  \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,center,#1]{date}
-    \usebeamerfont{date}\insertdate
-  \end{beamercolorbox}
-  \vskip\cam@inner@pitch%
+  \vbox{
+    \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,leftskip=1.5\cam@inner@pitch,#1]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}\nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,leftskip=1.5\cam@inner@pitch,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}\nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=0.5\cam@inner@pitch,leftskip=1.5\cam@inner@pitch,#1]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+  }\nointerlineskip
 }
+
+% Part page
+
+\defbeamertemplate*{part page}{cambridge theme}[1][]
+{
+    \begin{beamercolorbox}[wd=\paperwidth,sep=\cam@inner@pitch,leftskip=\cam@inner@pitch,#1]{palette primary}
+      \vskip5.5\cam@inner@pitch
+      {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber: }
+      {\usebeamerfont{part title}\usebeamercolor[fg]{part title}\insertpart\par}
+    \end{beamercolorbox}\nointerlineskip
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.5\cam@inner@pitch,#1]{palette tertiary}
+    \end{beamercolorbox}
+} 
 
 \mode<all>
 
