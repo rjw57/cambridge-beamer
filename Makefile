@@ -7,7 +7,7 @@ LATEXMK := $(PERL) scripts/latexmk.pl
 BUILD_DIR := build
 PDF_DIR := pdf
 
-LATEXMK_CMD=$(LATEXMK) -pdf -pdflatex="xelatex %O %S"
+LATEXMK_CMD=TEXINPUTS="$$TEXINPUTS:cambridge-beamer" $(LATEXMK) -pdf -pdflatex="xelatex %O %S"
 
 .DEFAULT: all
 .PHONY: all
