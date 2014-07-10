@@ -1,6 +1,7 @@
 TEX_SRCS=examples/beamerexample-conference-talk.tex
 
-LATEXMK := latexmk -pdf -pdflatex="xelatex %O %S"
+PERL := perl
+LATEXMK := $(PERL) scripts/latexmk.pl -pdf -pdflatex="xelatex %O %S"
 BUILD_DIR := build
 PDF_DIR := pdf
 
