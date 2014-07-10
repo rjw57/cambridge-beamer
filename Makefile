@@ -1,9 +1,13 @@
+# Specify source tex files here
 TEX_SRCS=examples/beamerexample-conference-talk.tex
 
+# The following variables may be overridden on the make command line in
 PERL := perl
-LATEXMK := $(PERL) scripts/latexmk.pl -pdf -pdflatex="xelatex %O %S"
+LATEXMK := $(PERL) scripts/latexmk.pl
 BUILD_DIR := build
 PDF_DIR := pdf
+
+LATEXMK_CMD=$(LATEXMK) -pdf -pdflatex="xelatex %O %S"
 
 .DEFAULT: all
 .PHONY: all
@@ -15,6 +19,6 @@ clean:
 
 $(PDF_DIR)/%.pdf: %.tex
 	mkdir -p "$(BUILD_DIR)/$*"
-	$(LATEXMK) -outdir="$(BUILD_DIR)/$*" "$<"
+	$(LATEXMK_CMD) -outdir="$(BUILD_DIR)/$*" "$<"
 	mkdir -p "$(dir $@)"
 	cp "$(BUILD_DIR)/$*/$(notdir $*).pdf" "$@"
